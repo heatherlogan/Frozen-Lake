@@ -30,31 +30,43 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="csv" value="4" />
+          <entry key="gitignore" value="1" />
           <entry key="py" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="PLAIN_TEXT" value="5" />
           <entry key="Python" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="3" />
+          <entry key="gitignore" value="3" />
           <entry key="py" value="3535" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="PLAIN_TEXT" value="6" />
           <entry key="Python" value="3535" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../AI_Coursework/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="12" selection-start-column="12" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -85,6 +97,7 @@
         <option value="$PROJECT_DIR$/../AI_Coursework/helpers.py" />
         <option value="$PROJECT_DIR$/../AI_Coursework/senseless_agent.py" />
         <option value="$PROJECT_DIR$/../AI_Coursework/simple_agent.py" />
+        <option value="$PROJECT_DIR$/../AI_Coursework/.gitignore" />
       </list>
     </option>
   </component>
@@ -95,9 +108,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="385" />
+    <option name="x" value="650" />
     <option name="y" value="23" />
-    <option name="width" value="1055" />
+    <option name="width" value="790" />
     <option name="height" value="805" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -116,8 +129,7 @@
             </path>
             <path>
               <item name="AI_Coursework" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AI_Coursework" type="462c0819:PsiDirectoryNode" />
-              <item name="output_tables" type="462c0819:PsiDirectoryNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -300,10 +312,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="385" y="23" width="1055" height="805" extended-state="0" />
+    <frame x="650" y="23" width="790" height="805" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2803554" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.82824427" visible="true" weight="0.37967914" />
+      <window_info id="Structure" order="1" sideWeight="0.17175573" side_tool="true" visible="true" weight="0.37967914" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -316,7 +329,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run Dashboard" order="9" sideWeight="0.49851924" weight="0.46086955" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4995064" visible="true" weight="0.5768116" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4995064" visible="true" weight="0.24057971" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50148076" side_tool="true" weight="0.22608696" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.3289855" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -417,6 +430,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
           <caret line="124" column="10" selection-start-line="124" selection-start-column="10" selection-end-line="124" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../AI_Coursework/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
         </state>
       </provider>
     </entry>
