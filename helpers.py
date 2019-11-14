@@ -1,4 +1,3 @@
-from aima3 import *
 from aima3.search import Node
 from aima3.utils import memoize, PriorityQueue
 
