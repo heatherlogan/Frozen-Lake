@@ -1,3 +1,8 @@
+from aima3 import *
+from aima3.search import Node
+from aima3.utils import memoize, PriorityQueue
+
+
 def env2statespace(env):
     """
     This simple parser demonstrates how you can extract the state space from the Open AI env
@@ -54,3 +59,114 @@ def env2statespace(env):
                     state_space_actions[state_id] = possible_states
 
     return state_space_locations, state_space_actions, state_initial_id, state_goal_id
+
+
+def my_best_first_graph_search_for_vis(problem, f):
+    """Search the nodes with the lowest f scores first.
+    You specify the function f(node) that you want to minimize; for example,
+    if f is a heuristic estimate to the goal, then we have greedy best
+    first search; if f is node.depth then we have breadth-first search.
+    There is a subtlety: the line "f = memoize(f, 'f')" means that the f
+    values will be cached on the nodes as they are computed. So after doing
+    a best first search you can examine the f values of the path returned."""
+
+    # we use these two variables at the time of visualisations
+    iterations = 0
+    all_node_colors = []
+    node_colors = {k: 'white' for k in problem.graph.nodes()}
+
+    f = memoize(f, 'f')
+    node = Node(problem.initial)
+
+    node_colors[node.state] = "red"
+    iterations += 1
+    all_node_colors.append(dict(node_colors))
+
+    if problem.goal_test(node.state):
+        node_colors[node.state] = "green"
+        iterations += 1
+        all_node_colors.append(dict(node_colors))
+        return (iterations, all_node_colors, node)
+
+    frontier = PriorityQueue('min', f)
+    frontier.append(node)
+
+    node_colors[node.state] = "orange"
+    iterations += 1
+    all_node_colors.append(dict(node_colors))
+
+    explored = set()
+    while frontier:
+        node = frontier.pop()
+
+        node_colors[node.state] = "red"
+        iterations += 1
+        all_node_colors.append(dict(node_colors))
+
+        if problem.goal_test(node.state):
+            node_colors[node.state] = "green"
+            iterations += 1
+            all_node_colors.append(dict(node_colors))
+            return (iterations, all_node_colors, node)
+
+        explored.add(node.state)
+        for child in node.expand(problem):
+            if child.state not in explored and child not in frontier:
+                frontier.append(child)
+                node_colors[child.state] = "orange"
+                iterations += 1
+                all_node_colors.append(dict(node_colors))
+            elif child in frontier:
+                incumbent = frontier[child]
+                if f(child) < f(incumbent):
+                    del frontier[incumbent]
+                    frontier.append(child)
+                    node_colors[child.state] = "orange"
+                    iterations += 1
+                    all_node_colors.append(dict(node_colors))
+
+        node_colors[node.state] = "gray"
+        iterations += 1
+        all_node_colors.append(dict(node_colors))
+    return None
+
+
+def my_astar_search_graph(problem, h=None):
+    """A* search is best-first graph search with f(n) = g(n)+h(n).
+    You need to specify the h function when you call astar_search, or
+    else in your Problem subclass."""
+    h = memoize(h or problem.h, 'h')
+    iterations, all_node_colors, node = my_best_first_graph_search_for_vis(problem,
+                                                                lambda n: n.path_cost + h(n))
+    return(iterations, all_node_colors, node)
+
+
+# Very basic implementation of a node state to action parser
+
+def get_action_from_states(cur_node, next_node):
+    # Action to int representations (taken from the FrozenLake github page)
+    # (https://github.com/openai/gym/blob/master/gym/envs/toy_text/frozen_lake.py)
+    LEFT = 0
+    DOWN = 1
+    RIGHT = 2
+    UP = 3
+
+    # Get the coordinates from the state string for each node
+    x1 = cur_node.state[2]
+    y1 = cur_node.state[4]
+    x2 = next_node.state[2]
+    y2 = next_node.state[4]
+
+    # We need to account for rotation between graph and environment
+    # X on our graph became Y on our environment (handles up/down)
+    # Y on our graph became X on our environment (handles left/right)
+    if x1 == x2:
+        if y1 > y2:
+            return LEFT
+        else:
+            return RIGHT
+    else:
+        if x1 > x2:
+            return UP
+        else:
+            return DOWN

@@ -1,0 +1,9 @@
+problem_id, avg rewards in 10000 eps, avg failures in 10000 eps, avg iterations to reward, avg best-case iterations to reward, avg worst case iterations to reward
+problem_0, 10000, 0,144.0,144,144
+problem_1, 10000, 0,135.0,135,135
+problem_2, 10000, 0,92.0,92,92
+problem_3, 10000, 0,82.0,82,82
+problem_4, 10000, 0,111.0,111,111
+problem_5, 10000, 0,114.0,114,114
+problem_6, 10000, 0,68.0,68,68
+problem_7, 10000, 0,124.0,124,124
