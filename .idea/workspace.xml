@@ -14,7 +14,7 @@
     <SUITE FILE_PATH="coverage/AI_Coursework$sensless_agent.coverage" NAME="sensless_agent Coverage Results" MODIFIED="1573747361336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/AI_Coursework$lochlomond_demo__1_.coverage" NAME="lochlomond_demo (1) Coverage Results" MODIFIED="1573748786021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../AI_Coursework" />
     <SUITE FILE_PATH="coverage/AI_Coursework$senseless_agent.coverage" NAME="senseless_agent Coverage Results" MODIFIED="1573756893682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../AI_Coursework" />
-    <SUITE FILE_PATH="coverage/AI_Coursework$simple_agent.coverage" NAME="simple_agent Coverage Results" MODIFIED="1573766109867" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../AI_Coursework" />
+    <SUITE FILE_PATH="coverage/AI_Coursework$simple_agent.coverage" NAME="simple_agent Coverage Results" MODIFIED="1573766829041" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../AI_Coursework" />
     <SUITE FILE_PATH="coverage/AI_Coursework$helpers.coverage" NAME="helpers Coverage Results" MODIFIED="1573763806502" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../AI_Coursework" />
   </component>
   <component name="FUSProjectUsageTrigger">
@@ -31,37 +31,49 @@
         <counts>
           <entry key="csv" value="4" />
           <entry key="gitignore" value="1" />
-          <entry key="py" value="15" />
+          <entry key="py" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Python" value="15" />
+          <entry key="Python" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="3" />
           <entry key="gitignore" value="3" />
-          <entry key="py" value="3535" />
+          <entry key="py" value="3536" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="6" />
-          <entry key="Python" value="3535" />
+          <entry key="Python" value="3536" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../AI_Coursework/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="12" selection-start-column="12" selection-end-column="12" />
+              <caret column="12" selection-start-column="11" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../AI_Coursework/simple_agent.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="38">
+              <caret line="73" column="17" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -96,8 +108,8 @@
         <option value="$PROJECT_DIR$/../AI_Coursework/run_eval.py" />
         <option value="$PROJECT_DIR$/../AI_Coursework/helpers.py" />
         <option value="$PROJECT_DIR$/../AI_Coursework/senseless_agent.py" />
-        <option value="$PROJECT_DIR$/../AI_Coursework/simple_agent.py" />
         <option value="$PROJECT_DIR$/../AI_Coursework/.gitignore" />
+        <option value="$PROJECT_DIR$/../AI_Coursework/simple_agent.py" />
       </list>
     </option>
   </component>
@@ -108,9 +120,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="650" />
+    <option name="x" value="408" />
     <option name="y" value="23" />
-    <option name="width" value="790" />
+    <option name="width" value="1032" />
     <option name="height" value="805" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -312,11 +324,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="650" y="23" width="790" height="805" extended-state="0" />
+    <frame x="408" y="23" width="1032" height="805" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.82824427" visible="true" weight="0.37967914" />
-      <window_info id="Structure" order="1" sideWeight="0.17175573" side_tool="true" visible="true" weight="0.37967914" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.82653064" visible="true" weight="0.2868687" />
+      <window_info id="Structure" order="1" sideWeight="0.1734694" side_tool="true" visible="true" weight="0.2868687" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -327,9 +339,9 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289855" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run Dashboard" order="9" sideWeight="0.49851924" weight="0.46086955" />
+      <window_info active="true" anchor="bottom" id="Run Dashboard" order="9" sideWeight="0.49851924" visible="true" weight="0.28985506" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4995064" visible="true" weight="0.24057971" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4995064" weight="0.442029" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50148076" side_tool="true" weight="0.22608696" />
       <window_info anchor="bottom" id="Python Console" order="13" weight="0.3289855" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -395,16 +407,6 @@
     <entry file="file://$PROJECT_DIR$/../AI_Coursework/output_tables/simple_agent_8x8.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../AI_Coursework/simple_agent.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="94" column="25" selection-start-line="94" selection-start-column="25" selection-end-line="94" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../AI_Coursework/senseless_agent.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -436,7 +438,17 @@
     <entry file="file://$PROJECT_DIR$/../AI_Coursework/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="12" selection-start-column="12" selection-end-column="12" />
+          <caret column="12" selection-start-column="11" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../AI_Coursework/simple_agent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="73" column="17" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

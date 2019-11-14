@@ -71,7 +71,7 @@ def run_simple_agent(problem_id, map):
 
             if(done):
                 print(problem_id)
-                env.render()
+                #env.render()
                 goal_episodes.append(e)
                 goal_iterations.append(iterations)
                 if first_goal == 0:
