@@ -1,7 +1,7 @@
 from aima3.search import *
-from uofgsocsai import LochLomondEnv  # load the class defining the custom Open AI Gym problem
+from uofgsocsai import LochLomondEnv
 from helpers import *
-from senseless_agent import *
+from run_random import *
 
 
 def run_simple_agent(problem_id, map):

@@ -39,7 +39,7 @@ def run_senseless_agent(number_of_repeats, problem_id, map):
         reward_hole = 0.0
         is_stochastic = True
 
-        max_episodes = 20000
+        max_episodes = 0000
         max_iter_per_episode = 2000
 
         env = LochLomondEnv(problem_id=problem_id, is_stochastic=is_stochastic,
