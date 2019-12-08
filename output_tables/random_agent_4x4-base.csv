@@ -1,0 +1,5 @@
+problem_id, total rewards, total failures, avg steps to reward, best-case steps to reward, worst case steps to reward, episodes to first reward
+0, 1365, 8635, 7.637362637362638, 2, 47, 5
+1, 259, 9741, 9.725868725868725, 4, 27, 17
+2, 418, 9582, 10.44976076555024, 4, 38, 12
+averages, 510.5, 6989.5, 6.9532480321954, 2.5, 28.0, 8.5
