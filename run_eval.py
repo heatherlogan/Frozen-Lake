@@ -3,11 +3,12 @@ from run_random import *
 from run_simple import *
 from run_random import *
 from run_rl import *
+import matplotlib.pyplot as plt
 
 
 def sort_df(df):
 
-    cols = [x*100 for x in range(1,501)]
+    cols = [x*100 for x in range(1,101)]
     df.columns = cols
 
     for col in cols:
@@ -22,17 +23,108 @@ def sort_df(df):
 def get_dataframes(map_name):
 
     if map_name=='8x8-base':
-        random_df = pd.read_csv("output_tables/random_agent_8x8-base.csv").set_index('problem_id')
-        simple_df = pd.read_csv("output_tables/simple_agent_8x8-base.csv").set_index('problem_id')
-        rl_df = pd.read_csv("output_tables/rl_agent_8x8-base.csv").set_index('problem_id')
+        random_df = pd.read_csv("random_agent_8x8-base.csv").set_index('problem_id')
+        simple_df = pd.read_csv("simple_agent_8x8-base.csv").set_index('problem_id')
+        rl_df = pd.read_csv("rl_agent_8x8-base.csv").set_index('problem_id')
     else:
-        random_df = pd.read_csv("output_tables/random_agent_4x4-base.csv").set_index('problem_id')
-        simple_df = pd.read_csv("output_tables/simple_agent_4x4-base.csv").set_index('problem_id')
-        rl_df = pd.read_csv("output_tables/rl_agent_4x4-base.csv").set_index('problem_id')
+        random_df = pd.read_csv("random_agent_4x4-base.csv").set_index('problem_id')
+        simple_df = pd.read_csv("simple_agent_4x4-base.csv").set_index('problem_id')
+        rl_df = pd.read_csv("rl_agent_4x4-base.csv").set_index('problem_id')
 
     return random_df, simple_df, rl_df
 
 
+def plot_and_save(df, map_name):
+
+    file_name= 'rl_learning_behaviour_{}.png'.format(map_name)
+
+    ax = df['averages'].plot(label='Averages', figsize=(20,10))
+    ax.grid(True)
+    plt.xlabel('Number of Episodes', fontsize=12)
+    plt.ylabel('Average rewards per 100 Episodes', fontsize=12)
+    plt.axvline(x=5000, c='red', label='Training Stops')
+    plt.title('Learning Behaviour of Reinformement Agent over 8 Problems\n alpha=0.1 gamma=0.95, reward_hole = -0.5 \n',
+              fontsize=17)
+    ax.legend(loc=4)
+    plt.savefig(file_name)
+    print('RL Learning Behaviour plot saved to file: ', file_name)
+
+
+def bar_charts(random_df, simple_df, rl_df, map_name):
+
+    file_name= 'steps_to_goal_{}.png'.format(map_name)
+
+    avg_steps = pd.DataFrame({'Random': random_df[' avg steps to reward'],
+                              'Simple': simple_df[' avg steps to reward'],
+                              'RL': rl_df[' avg steps to reward']})
+
+    best_steps = pd.DataFrame({'Random': random_df[' best-case steps to reward'],
+                               'Simple': simple_df[' best-case steps to reward'],
+                               'RL': rl_df[' best-case steps to reward']})
+
+    worst_steps = pd.DataFrame({'Random': random_df[' worst case steps to reward'],
+                                'Simple': simple_df[' worst case steps to reward'],
+                                'RL': rl_df[' worst case steps to reward']})
+
+    fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(45, 10))
+    ax1 = axes[0]
+    ax2 = axes[1]
+    ax3 = axes[2]
+
+    best_steps.plot(kind='bar', width=0.95, ax=ax1, color=['royalblue', 'mediumorchid', 'mediumturquoise'])
+
+    ax1.set_ylabel('Number of episodes to first goal')
+    ax1.set_title('Best-case steps to reward', fontsize=20)
+    x_offset = -0.1
+    y_offset = 0.2
+
+    for p in ax1.patches:
+        b = p.get_bbox()
+        val = "{}".format(int(b.y1 + b.y0))
+        ax1.annotate(val, ((b.x0 + b.x1) / 2 + x_offset, b.y1 + y_offset), fontsize='x-large')
+
+    avg_steps.plot(kind='bar', width=0.95, ax=ax2, color=['royalblue', 'mediumorchid', 'mediumturquoise'])
+
+    ax2.set_title('Average steps to reward', fontsize=20)
+    x_offset = -0.1
+    y_offset = 0.2
+
+    for p in ax2.patches:
+        b = p.get_bbox()
+        val = "{}".format(int(b.y1 + b.y0))
+        ax2.annotate(val, ((b.x0 + b.x1) / 2 + x_offset, b.y1 + y_offset), fontsize='x-large')
+
+    worst_steps.plot(kind='bar', width=0.95, ax=ax3, color=['royalblue', 'mediumorchid', 'mediumturquoise'])
+
+    ax3.set_title('Worst-case steps to reward', fontsize=20)
+    x_offset = -0.1
+    y_offset = 0.2
+
+    for p in ax3.patches:
+        b = p.get_bbox()
+        val = "{}".format(int(b.y1 + b.y0))
+        ax3.annotate(val, ((b.x0 + b.x1) / 2 + x_offset, b.y1 + y_offset), fontsize='x-large')
+
+    fig.savefig(file_name)
+
+    print('Number of steps to reward plot saved to file: ', file_name)
+
+    #   LINE GRAPH OF AWARDS ACHIEVED
+
+    all_rewards = pd.DataFrame({'Random': random_df[' total rewards'],
+                                'Simple': simple_df[' total rewards'],
+                                'RL': rl_df[' total rewards']})
+
+    file_name_2 = 'awards_achieved_{}.png'.format(map_name)
+    all_rewards_percent = (all_rewards / 10000) * 100
+    fig2, axes2 = plt.subplots(nrows=1, ncols=1, figsize=(20, 10))
+    all_rewards_percent.plot(kind='line', color=['royalblue', 'mediumorchid', 'mediumturquoise'], ax=axes2)
+    axes2.set_ylabel('Episodes Rewards were Achieved')
+    axes2.set_title('Percentage of Rewards Achieved in 10000 episodes')
+    axes2.legend(loc=1)
+    file_name_2 = 'awards_achieved_{}.png'.format(map_name)
+    fig2.savefig(file_name_2)
+    print('Percentage of Rewards Achieved in 10000 episodes saved to file, ', file_name_2)
 
 
 if __name__=='__main__':
@@ -105,18 +197,19 @@ if __name__=='__main__':
     # save results to text files
 
     if map_name=="8x8-base":
+        print(averages_random)
         averages_random = [num/8 for num in averages_random]
         averages_simple = [num/8 for num in averages_simple]
         averages_rl = [num/8 for num in averages_rl]
     else:
-        averages_random = [num/4 for num in averages_random]
-        averages_simple = [num/4 for num in averages_simple]
-        averages_rl = [num/4 for num in averages_rl]
+        averages_random = [num/3 for num in averages_random]
+        averages_simple = [num/3 for num in averages_simple]
+        averages_rl = [num/3 for num in averages_rl]
 
 
-    file_random = open('output_tables/random_agent_{}.csv'.format(map_name), 'w')
-    file_simple = open('output_tables/simple_agent_{}.csv'.format(map_name), 'w')
-    file_rl = open('output_tables/rl_agent_{}.csv'.format(map_name), 'w')
+    file_random = open('random_agent_{}.csv'.format(map_name), 'w')
+    file_simple = open('simple_agent_{}.csv'.format(map_name), 'w')
+    file_rl = open('rl_agent_{}.csv'.format(map_name), 'w')
 
     heading_str = ("problem_id, total rewards, total failures, avg steps to reward, best-case steps to reward,"
                    " worst case steps to reward, episodes to first reward\n")
@@ -148,9 +241,9 @@ if __name__=='__main__':
     file_simple.close()
     file_rl.close()
 
-    per_100_file_random = open('output_tables/random_rewards_per_100.csv', 'w')
-    per_100_file_simple = open('output_tables/simple_rewards_per_100.csv', 'w')
-    per_100_file_rl = open('output_tables/rl_rewards_per_100.csv', 'w')
+    per_100_file_random = open('random_rewards_per_100_{}.csv'.format(map_name), 'w')
+    per_100_file_simple = open('simple_rewards_per_100_{}.csv'.format(map_name), 'w')
+    per_100_file_rl = open('rl_rewards_per_100_{}.csv'.format(map_name), 'w')
 
     counts = []
 
@@ -171,6 +264,9 @@ if __name__=='__main__':
     print('\n------------ Simple Agent ------------\n', simple_df)
     print('\n-------------- RL Agent --------------\n', rl_df)
 
-
+    print('Agent results saved to csv files')
+    per_100_df = sort_df(pd.DataFrame(rl_rewards_per_100))
+    plot_and_save(per_100_df, map_name)
+    bar_charts(random_df, simple_df, rl_df, map_name)
 
 

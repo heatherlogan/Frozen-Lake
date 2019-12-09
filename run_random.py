@@ -61,7 +61,6 @@ def run_senseless_agent(problem_id, map):
         rewards_current_episode = 0
         state = env.reset()
 
-
         for iter in range(max_iter_per_episode):
 
             action = env.action_space.sample()
@@ -76,7 +75,7 @@ def run_senseless_agent(problem_id, map):
             if (done and reward == +1.0):
                 # env.render()
                 goal_episodes.append(e)
-                goal_iterations.append(iter+1)
+                goal_iterations.append(iter+2)
 
                 if first_goal == 0:
                     first_goal = e

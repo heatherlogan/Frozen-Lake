@@ -62,7 +62,7 @@ for e in range(max_episodes):  # iterate over episodes
 
         # print("e,iter,reward,done =" + str(e) + " " + str(iter)+ " " + str(reward)+ " " + str(done))
 
-        # Check if we are done and monitor rewards output_tables...
+        # Check if we are done and monitor rewards r...
         if (done and reward == reward_hole):
             # env.render()
             print("e,iter,reward,done =" + str(e) + " " + str(iter) + " " + str(reward) + " " + str(done))

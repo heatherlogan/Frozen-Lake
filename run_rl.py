@@ -23,11 +23,11 @@ def run_reinforcement_agent(problem_id, map):
     q_table = np.zeros((state_space, action_space))
 
     # parameter set up
-    max_episodes = 50000
+    max_episodes = 10000
     iterations = 1000
     learning_rate = 0.1  # alpha
     discount_rate = 0.95  # gamma
-
+    epsilon = 0.05 # exploration-exploitation settup
     rewards = []
 
     hole_episode_counter = []
@@ -53,7 +53,7 @@ def run_reinforcement_agent(problem_id, map):
 
             # choose the highest q_value in table to choose action
 
-            if np.random.uniform(0, 1) < 0.1:
+            if np.random.uniform(0, 1) < epsilon:
                 action = env.action_space.sample()
             else:
                 action = np.argmax(q_table[state, :])
@@ -78,7 +78,7 @@ def run_reinforcement_agent(problem_id, map):
                         first_goal = episode
 
                     goal_episodes.append(episode)
-                    goal_iterations.append(step)
+                    goal_iterations.append(step+2)
                     # print('you reached the goal in {} steps'.format(step))
                     break
                 else:
