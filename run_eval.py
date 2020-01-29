@@ -8,6 +8,8 @@ import matplotlib.pyplot as plt
 
 def sort_df(df):
 
+    # formatting rewards per 100 episodes
+
     cols = [x*100 for x in range(1,101)]
     df.columns = cols
 
@@ -36,6 +38,7 @@ def get_dataframes(map_name):
 
 def plot_and_save(df, map_name):
 
+    # plotting the learining behaviours of reinfocement agent
     file_name= 'rl_learning_behaviour_{}.png'.format(map_name)
 
     ax = df['averages'].plot(label='Averages', figsize=(20,10))
@@ -51,6 +54,8 @@ def plot_and_save(df, map_name):
 
 
 def bar_charts(random_df, simple_df, rl_df, map_name):
+
+    # creating bar charts for steps to goal and all rewards
 
     file_name= 'steps_to_goal_{}.png'.format(map_name)
 
@@ -155,6 +160,7 @@ if __name__=='__main__':
     simple_rewards_per_100 = []
     rl_rewards_per_100 = []
 
+    # run all agents
     for i in p_id_range:
 
         # run random_agent
@@ -196,6 +202,7 @@ if __name__=='__main__':
         rl_rewards_per_100.append(per_100)
     # save results to text files
 
+    # calculate averages
     if map_name=="8x8-base":
         print(averages_random)
         averages_random = [num/8 for num in averages_random]
@@ -205,7 +212,6 @@ if __name__=='__main__':
         averages_random = [num/3 for num in averages_random]
         averages_simple = [num/3 for num in averages_simple]
         averages_rl = [num/3 for num in averages_rl]
-
 
     file_random = open('random_agent_{}.csv'.format(map_name), 'w')
     file_simple = open('simple_agent_{}.csv'.format(map_name), 'w')
@@ -218,6 +224,7 @@ if __name__=='__main__':
     file_simple.write(heading_str)
     file_rl.write(heading_str)
 
+    # writing results to text files
     for i, result in enumerate(results_random):
         result_str = str(result).replace('[', '').replace(']', '')
         file_random.write("{}, {}\n".format(i, result_str))

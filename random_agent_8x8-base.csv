@@ -1,9 +1,0 @@
-problem_id, total rewards, total failures, avg steps to reward, best-case steps to reward, worst case steps to reward, steps to first goal
-0, 0, 10000, 0, 0, 0, 0
-1, 1, 9999, 32.0, 32, 32, 2795
-2, 49, 9951, 24.653061224489797, 10, 64, 38
-3, 8, 9992, 26.125, 18, 49, 3528
-4, 4, 9996, 27.5, 20, 38, 2872
-5, 4, 9996, 17.75, 10, 26, 2923
-6, 0, 10000, 0, 0, 0, 0
-7, 5, 9995, 19.0, 12, 26, 4034

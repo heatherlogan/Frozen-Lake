@@ -44,7 +44,6 @@ def run_reinforcement_agent(problem_id, map):
 
         # end learning phase at midpoint
         if episode == max_episodes / 2:
-            # print('LEARNING OVER')
             learning_rate = 0.0
 
         rewards_current_episode = 0
